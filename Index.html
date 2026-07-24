@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register — Aviation Professionals Network of Sri Lanka</title>
+  <meta name="description" content="Join the Aviation Professionals Network of Sri Lanka. Register your professional profile to connect with Sri Lanka's aviation community." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>" />
+
+  <style>
+    /* ─── CSS CUSTOM PROPERTIES ──────────────────────────── */
+    :root {
+      --navy:    #0f172a;
+      --sky:     #38bdf8;
+      --sky-dim: #0ea5e9;
+      --slate:   #64748b;
+      --white:   #ffffff;
+      --bg:      #f8fafc;
+      --success: #10b981;
+      --error:   #ef4444;
+      --warning: #f59e0b;
+      --border:  #e2e8f0;
+      --text:    #1e293b;
+      --text-sm: #334155;
+      --text-xs: #94a3b8;
+      --card-shadow: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.07);
+      --card-shadow-lg: 0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
+      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ─── RESET & BASE ────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    /* ─── LAYOUT ──────────────────────────────────────────── */
+    .app-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── HEADER ──────────────────────────────────────────── */
+    .site-header {
+      background: var(--navy);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    }
+    .site-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .brand-icon {
+      font-size: 28px;
+      line-height: 1;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+    .brand-tag {
+      font-size: 10px;
+      color: var(--sky);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+    .header-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(56,189,248,0.12);
+      border: 1px solid rgba(56,189,248,0.25);
+      color: var(--sky);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    /* ─── HERO SECTION ────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 50%, #164e63 100%);
+      padding: 48px 24px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2338bdf8' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(56,189,248,0.15);
+      border: 1px solid rgba(56,189,248,0.3);
+      color: var(--sky);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .hero h1 span { color: var(--sky); }
+    .hero-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.65);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ─── MAIN CONTENT ────────────────────────────────────── */
+    .main-content {
+      flex: 1;
+      padding: 0 16px 48px;
+      margin-top: -40px;
+    }
+
+    /* ─── FORM CARD ───────────────────────────────────────── */
+    .form-card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: var(--card-shadow-lg);
+      max-width: 720px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    /* ─── PROGRESS WIZARD ─────────────────────────────────── */
+    .progress-bar {
+      background: linear-gradient(90deg, #f0f9ff, #e0f2fe);
+      padding: 28px 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .steps-track {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .step-connector {
+      position: absolute;
+      top: 20px;
+      left: calc(100% / 6 + 10px);
+      right: calc(100% / 6 + 10px);
+      height: 2px;
+      background: var(--border);
+      z-index: 0;
+    }
+    .step-connector-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--success), var(--sky));
+      transition: width 0.5s ease;
+      width: 0%;
+    }
+    .step-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      z-index: 1;
+      cursor: default;
+    }
+    .step-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      border: 2.5px solid var(--border);
+      background: var(--white);
+      color: var(--slate);
+      transition: var(--transition);
+    }
+    .step-item.active .step-circle {
+      border-color: var(--sky);
+      background: var(--sky);
+      color: var(--white);
+      box-shadow: 0 0 0 4px rgba(56,189,248,0.2);
+    }
+    .step-item.completed .step-circle {
+      border-color: var(--success);
+      background: var(--success);
+      color: var(--white);
+    }
+    .step-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--slate);
+      text-align: center;
+      white-space: nowrap;
+    }
+    .step-item.active .step-label { color: var(--sky-dim); }
+    .step-item.completed .step-label { color: var(--success); }
+
+    /* ─── FORM BODY ───────────────────────────────────────── */
+    .form-body { padding: 32px; }
+
+    .step-panel {
+      display: none;
+      animation: fadeSlideIn 0.3s ease;
+    }
+    .step-panel.active { display: block; }
+
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeSlideInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .step-panel.slide-left { animation: fadeSlideInLeft 0.3s ease; }
+
+    .step-heading {
+      margin-bottom: 24px;
+    }
+    .step-heading h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .step-heading p {
+      font-size: 13px;
+      color: var(--slate);
+      margin-top: 4px;
+    }
+
+    /* ─── FORM ROWS & GROUPS ──────────────────────────────── */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .form-row.single { grid-template-columns: 1fr; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+
+    label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-sm);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .required-star { color: var(--error); font-weight: 700; font-size: 14px; }
+    .optional-tag  {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-xs);
+      background: #f1f5f9;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    /* ─── INPUT FIELDS ────────────────────────────────────── */
+    input, select, textarea {
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 11px 15px;
+      width: 100%;
+      transition: var(--transition);
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    input::placeholder, textarea::placeholder { color: var(--text-xs); }
+    select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
+    textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--sky);
+      box-shadow: 0 0 0 3px rgba(56,189,248,0.15);
+    }
+    input.error, select.error, textarea.error {
+      border-color: var(--error);
+      background: #fef2f2;
+      box-shadow: 0 0 0 3px rgba(239,68,68,0.1);
+    }
+    input.valid, select.valid, textarea.valid {
+      border-color: var(--success);
+    }
+
+    .field-error {
+      font-size: 11.5px;
+      color: var(--error);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      min-height: 18px;
+    }
+    .field-hint {
+      font-size: 11.5px;
+      color: var(--text-xs);
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+    .shake { animation: shake 0.4s ease; }
+
+    /* ─── NAVIGATION BUTTONS ──────────────────────────────── */
+    .form-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      gap: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      min-height: 44px;
+      white-space: nowrap;
+    }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+      color: var(--white);
+      flex: 1;
+      max-width: 200px;
+      margin-left: auto;
+      box-shadow: 0 4px 12px rgba(15,23,42,0.3);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: linear-gradient(135deg, #1e293b 0%, #234876 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(15,23,42,0.35);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--slate);
+      border: 1.5px solid var(--border);
+    }
+    .btn-secondary:hover:not(:disabled) { background: #f8fafc; color: var(--text); border-color: #cbd5e1; }
+    .btn-sky {
+      background: linear-gradient(135deg, var(--sky) 0%, var(--sky-dim) 100%);
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(56,189,248,0.35);
+    }
+    .btn-sky:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(56,189,248,0.4); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--sky-dim);
+      font-size: 13px;
+      padding: 8px 14px;
+      border: 1.5px solid rgba(56,189,248,0.35);
+      border-radius: 6px;
+    }
+    .btn-ghost:hover { background: rgba(56,189,248,0.06); }
+
+    /* ─── REVIEW CARD ─────────────────────────────────────── */
+    .review-section { margin-bottom: 24px; }
+    .review-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .review-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .review-item {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .review-item:nth-last-child(-n+2) { border-bottom: none; }
+    .review-item.full { grid-column: 1 / -1; }
+    .review-item label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-xs);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .review-item .review-value {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      word-break: break-word;
+    }
+    .review-item .review-empty { color: var(--text-xs); font-style: italic; font-size: 12px; }
+
+    /* ─── CONFIRM CHECKBOX ────────────────────────────────── */
+    .confirm-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #f0fdf4;
+      border: 1.5px solid #bbf7d0;
+      border-radius: 10px;
+      padding: 16px;
+      margin: 20px 0;
+    }
+    .confirm-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      margin-top: 2px;
+      cursor: pointer;
+      accent-color: var(--success);
+      border: 1.5px solid #d1d5db;
+      border-radius: 4px;
+      padding: 0;
+    }
+    .confirm-row label {
+      font-size: 13px;
+      color: #166534;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    /* ─── SUCCESS STATE ───────────────────────────────────── */
+    #success-view {
+      display: none;
+      padding: 48px 32px;
+      text-align: center;
+    }
+    .success-checkmark {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+    }
+    .success-checkmark circle {
+      stroke: var(--success);
+      stroke-width: 4;
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      fill: none;
+      animation: dash 0.6s ease-in-out 0.2s forwards;
+    }
+    .success-checkmark polyline {
+      stroke: var(--success);
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      animation: dash 0.4s ease-in-out 0.7s forwards;
+    }
+    @keyframes dash {
+      to { stroke-dashoffset: 0; }
+    }
+    #success-view h2 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    #success-view .success-sub {
+      font-size: 14px;
+      color: var(--slate);
+      margin-bottom: 28px;
+    }
+    .reg-badge {
+      background: var(--navy);
+      border-radius: 12px;
+      padding: 20px 28px;
+      display: inline-block;
+      margin-bottom: 28px;
+      min-width: 260px;
+    }
+    .reg-badge-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-xs);
+      margin-bottom: 8px;
+    }
+    .reg-number {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      font-family: 'Courier New', monospace;
+      margin-bottom: 12px;
+    }
+    .copy-btn {
+      background: rgba(255,255,255,0.1);
+      color: var(--sky);
+      border: 1px solid rgba(56,189,248,0.3);
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+    .copy-btn:hover { background: rgba(255,255,255,0.18); }
+    .copy-btn.copied { color: var(--success); border-color: var(--success); }
+    .success-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── OVERLAY / SPINNER ───────────────────────────────── */
+    #loading-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+    }
+    #loading-overlay.active { display: flex; }
+    .spinner {
+      width: 44px;
+      height: 44px;
+      border: 3.5px solid var(--border);
+      border-top-color: var(--sky);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner-sm {
+      width: 16px;
+      height: 16px;
+      border-width: 2px;
+      display: inline-block;
+    }
+    .loading-text { font-size: 14px; font-weight: 600; color: var(--slate); }
+
+    /* ─── TOAST NOTIFICATION ──────────────────────────────── */
+    #toast {
+      position: fixed;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      background: var(--white);
+      border-left: 4px solid var(--error);
+      border-radius: 8px;
+      box-shadow: var(--card-shadow-lg);
+      padding: 14px 18px 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      min-width: 300px;
+      max-width: min(480px, calc(100vw - 32px));
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+    .toast-icon { font-size: 18px; line-height: 1; flex-shrink: 0; margin-top: 1px; }
+    .toast-body { flex: 1; }
+    .toast-title { font-size: 13px; font-weight: 700; color: var(--error); margin-bottom: 2px; }
+    .toast-msg   { font-size: 12px; color: var(--slate); line-height: 1.4; }
+    .toast-close { background: none; border: none; cursor: pointer; color: var(--text-xs); font-size: 18px; line-height: 1; padding: 0; flex-shrink: 0; }
+
+    /* ─── ADMIN VIEW ──────────────────────────────────────── */
+    #admin-view { display: none; }
+    .admin-header {
+      background: var(--navy);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .admin-header h1 { font-size: 18px; font-weight: 700; color: var(--white); }
+    .admin-header .admin-sub { font-size: 12px; color: var(--sky); }
+
+    .admin-container { max-width: 1400px; margin: 0 auto; padding: 24px 16px; }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: var(--card-shadow);
+      border-top: 4px solid transparent;
+    }
+    .stat-card:nth-child(1) { border-top-color: var(--sky); }
+    .stat-card:nth-child(2) { border-top-color: var(--success); }
+    .stat-card:nth-child(3) { border-top-color: var(--error); }
+    .stat-card:nth-child(4) { border-top-color: var(--warning); }
+    .stat-card .stat-value { font-size: 32px; font-weight: 800; color: var(--navy); line-height: 1; margin-bottom: 4px; }
+    .stat-card .stat-label { font-size: 12px; color: var(--slate); font-weight: 500; }
+
+    .admin-controls {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .admin-search {
+      flex: 1;
+      min-width: 200px;
+      padding: 9px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 13px;
+      outline: none;
+    }
+    .admin-search:focus { border-color: var(--sky); box-shadow: 0 0 0 3px rgba(56,189,248,0.1); }
+    .admin-filter {
+      padding: 9px 32px 9px 12px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 13px;
+      background: var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E") no-repeat right 12px center;
+      -webkit-appearance: none;
+      outline: none;
+      cursor: pointer;
+    }
+    .admin-filter:focus { border-color: var(--sky); }
+
+    .table-wrapper {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+    }
+    .table-scroll { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 900px; }
+    thead { background: var(--navy); position: sticky; top: 0; z-index: 10; }
+    thead th {
+      padding: 12px 14px;
+      text-align: left;
+      color: rgba(255,255,255,0.8);
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+      cursor: pointer;
+      user-select: none;
+    }
+    thead th:hover { color: var(--sky); }
+    thead th .sort-icon { font-size: 10px; margin-left: 4px; opacity: 0.5; }
+    thead th.sort-asc .sort-icon::after { content: ' ↑'; opacity: 1; color: var(--sky); }
+    thead th.sort-desc .sort-icon::after { content: ' ↓'; opacity: 1; color: var(--sky); }
+    tbody tr { transition: background 0.15s; }
+    tbody tr:nth-child(even) { background: #f8fafc; }
+    tbody tr:hover { background: #e0f2fe; }
+    tbody tr.failed-row { background: #fef2f2 !important; }
+    tbody tr.failed-row:hover { background: #fee2e2 !important; }
+    td {
+      padding: 10px 14px;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      vertical-align: middle;
+    }
+    td.wrap { white-space: normal; max-width: 220px; }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 100px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .pill-sent    { background: #d1fae5; color: #065f46; }
+    .pill-failed  { background: #fee2e2; color: #991b1b; }
+    .pill-pending { background: #fef3c7; color: #92400e; }
+
+    .pagination-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pagination-info { font-size: 12px; color: var(--slate); }
+    .pagination-btns { display: flex; gap: 6px; }
+    .pag-btn {
+      min-width: 32px;
+      height: 32px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      color: var(--text);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .pag-btn:hover:not(:disabled) { border-color: var(--sky); color: var(--sky); }
+    .pag-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .pag-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .export-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-export {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--text-sm);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: inherit;
+    }
+    .btn-export:hover { border-color: var(--sky); color: var(--sky); background: #f0f9ff; }
+
+    /* ─── PASSWORD GATE ───────────────────────────────────── */
+    #admin-gate {
+      max-width: 400px;
+      margin: 80px auto;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: var(--card-shadow-lg);
+      padding: 40px;
+      text-align: center;
+    }
+    #admin-gate .gate-icon { font-size: 48px; margin-bottom: 16px; }
+    #admin-gate h2 { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    #admin-gate p  { font-size: 13px; color: var(--slate); margin-bottom: 24px; }
+    #admin-password-field {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      text-align: center;
+      letter-spacing: 0.2em;
+      outline: none;
+      margin-bottom: 12px;
+      font-family: inherit;
+    }
+    #admin-password-field:focus { border-color: var(--sky); box-shadow: 0 0 0 3px rgba(56,189,248,0.15); }
+    #admin-error { font-size: 12px; color: var(--error); min-height: 18px; margin-bottom: 12px; }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    .site-footer {
+      background: var(--navy);
+      padding: 20px 24px;
+      text-align: center;
+      margin-top: auto;
+    }
+    .site-footer p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+    }
+    .site-footer span { color: var(--sky); }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
+      .form-body { padding: 20px 16px; }
+      .progress-bar { padding: 20px 16px; }
+      .step-label { font-size: 10px; }
+      .review-grid { grid-template-columns: 1fr; }
+      .review-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .review-item:last-child { border-bottom: none; }
+      .admin-container { padding: 16px 12px; }
+      .reg-badge { min-width: 0; width: 100%; }
+      .success-actions { flex-direction: column; }
+      .success-actions .btn { width: 100%; }
+      .brand-text { display: none; }
+      .step-connector { left: 60px; right: 60px; }
+    }
+    @media (max-width: 400px) {
+      .step-connector { left: 50px; right: 50px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Toast Notification -->
+  <div id="toast" role="alert" aria-live="assertive">
+    <span class="toast-icon">⚠️</span>
+    <div class="toast-body">
+      <div class="toast-title">Submission Error</div>
+      <div class="toast-msg" id="toast-msg"></div>
+    </div>
+    <button class="toast-close" onclick="hideToast()" aria-label="Close notification">×</button>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div id="loading-overlay" role="status" aria-label="Processing your registration">
+    <div class="spinner"></div>
+    <div class="loading-text">Processing your registration…</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!--  REGISTRATION FORM VIEW                                 -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div id="form-view" class="app-wrapper">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a href="#" class="brand" aria-label="Aviation Professionals Network of Sri Lanka">
+          <span class="brand-icon" aria-hidden="true">✈️</span>
+          <div class="brand-text">
+            <span class="brand-name">Aviation Professionals Network</span>
+            <span class="brand-tag">of Sri Lanka</span>
+          </div>
+        </a>
+        <div class="header-badge">
+          <span aria-hidden="true">🔒</span>
+          <span>Secure Registration</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" aria-label="Registration portal header">
+      <div class="hero-content">
+        <div class="hero-eyebrow" aria-hidden="true">✈️ Professional Registry</div>
+        <h1>Join <span>Sri Lanka's</span> Aviation Network</h1>
+        <p class="hero-sub">Connecting Sri Lanka's Aviation Excellence — Register your professional profile today.</p>
+      </div>
+    </section>
+
+    <!-- Main -->
+    <main class="main-content" id="main">
+      <div class="form-card" role="main">
+        <!-- Progress Bar -->
+        <nav class="progress-bar" aria-label="Registration steps">
+          <div class="steps-track">
+            <div class="step-connector" aria-hidden="true">
+              <div class="step-connector-fill" id="connector-fill"></div>
+            </div>
+            <div class="step-item active" id="step-nav-1" aria-current="step">
+              <div class="step-circle" id="step-circle-1" aria-hidden="true">1</div>
+              <span class="step-label">Personal Details</span>
+            </div>
+            <div class="step-item" id="step-nav-2">
+              <div class="step-circle" id="step-circle-2" aria-hidden="true">2</div>
+              <span class="step-label">Employment</span>
+            </div>
+            <div class="step-item" id="step-nav-3">
+              <div class="step-circle" id="step-circle-3" aria-hidden="true">3</div>
+              <span class="step-label">Licensing & Submit</span>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Form Body -->
+        <div class="form-body">
+          <form id="reg-form" novalidate autocomplete="on">
+
+            <!-- ══════════════════════════════════════════════ -->
+            <!--  STEP 1: PERSONAL & IDENTITY                  -->
+            <!-- ══════════════════════════════════════════════ -->
+            <div class="step-panel active" id="panel-1" role="group" aria-labelledby="step1-heading">
+              <div class="step-heading">
+                <h2 id="step1-heading">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  Personal &amp; Identity
+                </h2>
+                <p>Your legal and contact information for the professional registry.</p>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fullName">Full Name <span class="required-star" aria-hidden="true">*</span></label>
+                  <input type="text" id="fullName" name="fullName" placeholder="Kavinda Anurada Perera" autocomplete="name" aria-required="true" aria-describedby="fullName-error" />
+                  <span class="field-error" id="fullName-error" role="alert" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                  <label for="preferredName">Preferred Name <span class="required-star" aria-hidden="true">*</span></label>
+                  <input type="text" id="preferredName" name="preferredName" placeholder="Anurada Perera" autocomplete="nickname" aria-required="true" aria-describedby="preferredName-error" />
+                  <span class="field-error" id="preferredName-error" role="alert" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <div class="form-row single">
+                <div class="form-group">
+                  <label for="primaryEmail">Primary Email <span class="required-star" aria-hidden="true">*</span></label>
+                  <input type="email" id="primaryEmail" name="primaryEmail" placeholder="kavinda.perera@example.lk" autocomplete="email" aria-required="true" aria-describedby="primaryEmail-error primaryEmail-hint" />
+                  <span class="field-hint" id="primaryEmail-hint">This will be your unique identifier in the network.</span>
+                  <span class="field-error" id="primaryEmail-error" role="alert" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="primaryContactNo">Primary Contact No. <span class="required-star" aria-hidden="true">*</span></label>
+                  <input type="tel" id="primaryContactNo" name="primaryContactNo" placeholder="+94771234567" autocomplete="tel" aria-required="true" aria-describedby="primaryContactNo-error primaryContactNo-hint" />
+                  <span class="field-hint" id="primaryContactNo-hint">Sri Lankan mobile number (e.g., 0771234567)</span>
+                  <span class="field-error" id="primaryContactNo-error" role="alert" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                  <label for="secondaryContactNo">Secondary Contact No. <span class="optional-tag">Optional</span></label>
+                  <input type="tel" id="secondaryContactNo" name="secondaryContactNo" placeholder="+94112850000" autocomplete="tel" aria-describedby="secondaryContactNo-error" />
+                  <span class="field-error" id="secondaryContactNo-error" role="alert" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <div class="form-row single">
+                <div class="form-group">
+                  <label for="permanentAddress">Permanent Address <span class="required-star" aria-hidden="true">*</span></label>
+                  <textarea id="permanentAddress" name="permanentAddress" rows="3" placeholder="No. 123, Temple Road, Katunayake" autocomplete="street-address" aria-required="true" aria-describedby="permanentAddress-error"></textarea>
+                  <span class="field-error" id="permanentAddress-error" role="alert" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <div class="form-nav">
+                <div></div>
+                <button type="button" class="btn btn-primary" id="next-1" onclick="goToStep(2)">
+                  Next: Employment
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════ -->
+            <!--  STEP 2: EMPLOYMENT DETAILS                    -->
+            <!-- ══════════════════════════════════════════════ -->
+            <div class="step-panel" id="panel-2" role="group" aria-labelledby="step2-heading">
+              <div class="step-heading">
+                <h2 id="step2-heading">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                  Employment Details
+                </h2>
+                <p>Your current position and organisation within Sri Lanka's aviation sector.</p>
+              </div>
+
+              <div class="form-row single">
+                <div class="form-group">
+                  <label for="currentEmployer">Current Employer <span class="required-star" aria-hidden="true">*</span></label>
+                  <input type="text" id="currentEmployer" name="currentEmployer" placeholder="SriLankan Airlines, FitsAir, AASL, CAASL…" autocomplete="organization" aria-required="true" aria-describedby="currentEmployer-error" />
+                  <span class="field-error" id="currentEmployer-error" role="alert" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="jobCategory">Job Category <span class="required-star" aria-hidden="true">*</span></label>
+                  <select id="jobCategory" name="jobCategory" aria-required="true" aria-describedby="jobCategory-error" onchange="onJobCategoryChange()">
+                    <option value="">-- Select Job Category --</option>
+                    <option>Flight Crew</option>
+                    <option>Cabin Crew</option>
+                    <option>Flight Operations &amp; Dispatch</option>
+                    <option>Air Traffic Control (ATC)</option>
+                    <option>Airfield &amp; Navigational Operations</option>
+                    <option>Aircraft Maintenance &amp; Engineering (MRO)</option>
+                    <option>Aircraft Design &amp; Manufacturing</option>
+                    <option>Ground Operations &amp; Ramp Services</option>
+                    <option>Airport Services &amp; Ticketing</option>
+                    <option>Cargo &amp; Logistics</option>
+                    <option>University Teachers &amp; Academic Researchers</option>
+                    <option>Flight &amp; Ground Instructors</option>
+                    <option>Type Rating Examiners</option>
+                    <option>Aviation Communicators &amp; Media (Content Creators, PR Officers, Journalists)</option>
+                    <option>Aviation Safety &amp; Quality Assurance</option>
+                    <option>Aviation Security (AVSEC)</option>
+                    <option>Emergency &amp; Fire Services (ARFF)</option>
+                    <option>Aviation Medicine &amp; Human Factors</option>
+                    <option>Aviation Business (Leasing, Revenue Management, Strategy)</option>
+                    <option>Aviation Law &amp; Regulatory Affairs</option>
+                    <option>Drone/UAS Operations &amp; Emerging Technologies (eVTOL, UTM)</option>
+                    <option>Aviation Sustainability</option>
+                    <option>General/Specialized Aviation (FBO, Corporate, Air Ambulance)</option>
+                  </select>
+                  <span class="field-error" id="jobCategory-error" role="alert" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                  <label for="jobTitle">Job Title <span class="required-star" aria-hidden="true">*</span></label>
+                  <input type="text" id="jobTitle" name="jobTitle" placeholder="Senior First Officer / Lead Avionics Engineer" autocomplete="organization-title" aria-required="true" aria-describedby="jobTitle-error" />
+                  <span class="field-error" id="jobTitle-error" role="alert" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="primaryBaseAirport" id="airport-label">Primary Base Airport <span class="required-star" id="airport-required-star" aria-hidden="true">*</span><span class="optional-tag" id="airport-optional" style="display:none">Optional</span></label>
+                  <select id="primaryBaseAirport" name="primaryBaseAirport" aria-describedby="primaryBaseAirport-error">
+                    <option value="">-- Select Primary Base Airport --</option>
+                    <option>BIA (Bandaranaike International Airport)</option>
+                    <option>MRIA (Mattala Rajapaksa International Airport)</option>
+                    <option>Ratmalana Airport</option>
+                    <option>Jaffna International Airport</option>
+                    <option>Batticaloa Airport</option>
+                    <option>Trincomalee Airport</option>
+                    <option>Ampara Airport</option>
+                    <option>Anuradhapura Airport</option>
+                    <option>Sigiriya Airport</option>
+                    <option>Castlereagh Reservoir Waterdrome</option>
+                    <option>Polgolla Reservoir Waterdrome</option>
+                    <option>Koggala Airport</option>
+                    <option>Hingurakgoda Airport</option>
+                    <option>Vavuniya Airport</option>
+                    <option>Other / Not Applicable</option>
+                  </select>
+                  <span class="field-error" id="primaryBaseAirport-error" role="alert" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                  <label for="employmentStatus">Employment Status <span class="required-star" aria-hidden="true">*</span></label>
+                  <select id="employmentStatus" name="employmentStatus" aria-required="true" aria-describedby="employmentStatus-error">
+                    <option value="">-- Select Employment Status --</option>
+                    <option>Full-Time Permanent</option>
+                    <option>Contract</option>
+                    <option>Freelance / On-Call</option>
+                  </select>
+                  <span class="field-error" id="employmentStatus-error" role="alert" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <div class="form-nav">
+                <button type="button" class="btn btn-secondary" onclick="goToStep(1, true)">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                  Back
+                </button>
+                <button type="button" class="btn btn-primary" id="next-2" onclick="goToStep(3)">
+                  Next: Licensing
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════ -->
+            <!--  STEP 3: REGULATORY & LICENSING               -->
+            <!-- ══════════════════════════════════════════════ -->
+            <div class="step-panel" id="panel-3" role="group" aria-labelledby="step3-heading">
+              <div class="step-heading">
+                <h2 id="step3-heading">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                  Regulatory &amp; Licensing
+                </h2>
+                <p>Your CAASL credentials and professional certifications (all optional).</p>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="caasLicenseNo">CAASL License No. <span class="optional-tag">Optional</span></label>
+                  <input type="text" id="caasLicenseNo" name="caasLicenseNo" placeholder="CAASL/P/10492 or CAASL/AME/3820" aria-describedby="caasLicenseNo-error caasLicenseNo-hint" oninput="onLicenseInput()" />
+                  <span class="field-hint" id="caasLicenseNo-hint">If provided, must be unique in the registry.</span>
+                  <span class="field-error" id="caasLicenseNo-error" role="alert" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                  <label for="licenseType" id="license-type-label">License Type <span class="required-star" id="licenseType-required-star" aria-hidden="true" style="display:none">*</span><span class="optional-tag" id="licenseType-optional">Optional</span></label>
+                  <input type="text" id="licenseType" name="licenseType" placeholder="ATPL, CPL, PPL, AML (Part-66), ATCL…" aria-describedby="licenseType-error" />
+                  <span class="field-error" id="licenseType-error" role="alert" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="typeRatings">Type Ratings <span class="optional-tag">Optional</span></label>
+                  <input type="text" id="typeRatings" name="typeRatings" placeholder="Airbus A330, Airbus A320, ATR 72-600…" aria-describedby="typeRatings-error" maxlength="200" />
+                  <span class="field-error" id="typeRatings-error" role="alert" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                  <label for="totalExperience">Total Experience / Hours <span class="optional-tag">Optional</span></label>
+                  <input type="text" id="totalExperience" name="totalExperience" placeholder="4500 Flight Hours / 12 Years" aria-describedby="totalExperience-error" maxlength="100" />
+                  <span class="field-error" id="totalExperience-error" role="alert" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <!-- ── REVIEW SECTION ─────────────────────────── -->
+              <div class="review-section" id="review-card" style="margin-top:28px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+                  <h3 style="margin:0;font-size:14px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px;">
+                    <span aria-hidden="true">📋</span> Review Your Information
+                  </h3>
+                  <span style="font-size:11px;color:var(--slate);">Verify before submitting</span>
+                </div>
+
+                <div style="margin-bottom:14px;">
+                  <div style="font-size:11px;font-weight:700;color:var(--slate);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">
+                    Personal Details
+                    <button type="button" class="btn-ghost" onclick="goToStep(1,true)" aria-label="Edit Personal Details">Edit ✏️</button>
+                  </div>
+                  <div class="review-grid" id="review-personal"></div>
+                </div>
+
+                <div style="margin-bottom:14px;">
+                  <div style="font-size:11px;font-weight:700;color:var(--slate);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">
+                    Employment Details
+                    <button type="button" class="btn-ghost" onclick="goToStep(2,true)" aria-label="Edit Employment Details">Edit ✏️</button>
+                  </div>
+                  <div class="review-grid" id="review-employment"></div>
+                </div>
+
+                <div style="margin-bottom:14px;">
+                  <div style="font-size:11px;font-weight:700;color:var(--slate);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">
+                    Regulatory &amp; Licensing
+                  </div>
+                  <div class="review-grid" id="review-licensing"></div>
+                </div>
+              </div>
+
+              <!-- ── CONFIRM CHECKBOX ──────────────────────── -->
+              <div class="confirm-row">
+                <input type="checkbox" id="confirmAccuracy" name="confirmAccuracy" aria-required="true" aria-describedby="confirm-error" />
+                <label for="confirmAccuracy">I confirm that all information provided is accurate and complete to the best of my knowledge. I understand this will be stored in the official Aviation Professionals Network of Sri Lanka registry.</label>
+              </div>
+              <span class="field-error" id="confirm-error" role="alert" aria-live="polite" style="margin-top:-10px;margin-bottom:8px;display:block;"></span>
+
+              <div class="form-nav">
+                <button type="button" class="btn btn-secondary" onclick="goToStep(2, true)">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                  Back
+                </button>
+                <button type="button" class="btn btn-sky" id="submit-btn" onclick="submitForm()" style="flex:1;max-width:220px;">
+                  Complete Registration →
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Success View -->
+        <div id="success-view" role="main" aria-live="polite">
+          <svg class="success-checkmark" viewBox="0 0 52 52" aria-label="Registration successful checkmark">
+            <circle cx="26" cy="26" r="24"/>
+            <polyline points="14 27 22 35 38 18"/>
+          </svg>
+          <h2>Registration Successful! ✅</h2>
+          <p class="success-sub">Your profile has been added to the Aviation Professionals Network. A confirmation email has been sent to your primary email address.</p>
+          <div class="reg-badge">
+            <div class="reg-badge-label">Your Registration Number</div>
+            <div class="reg-number" id="success-reg-no">SL-AERO-2026-0001</div>
+            <button class="copy-btn" onclick="copyRegNo()" id="copy-reg-btn" aria-label="Copy registration number to clipboard">📋 Copy to Clipboard</button>
+          </div>
+          <div class="success-actions">
+            <button class="btn btn-secondary" onclick="resetForm()">Register Another Professional</button>
+            <button class="btn btn-primary" onclick="window.scrollTo(0,0)" style="max-width:none;">Close</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer" aria-label="Site footer">
+      <p>© 2026 <span>Aviation Professionals Network of Sri Lanka</span> · All rights reserved · Secure &amp; Confidential</p>
+    </footer>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!--  ADMIN VIEW                                             -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div id="admin-view">
+    <!-- Password Gate -->
+    <div id="admin-gate" role="main">
+      <div class="gate-icon" aria-hidden="true">🔒</div>
+      <h2>Admin Access</h2>
+      <p>Enter the administrator password to access the dashboard.</p>
+      <input type="password" id="admin-password-field" placeholder="••••••••••" aria-label="Admin password" onkeydown="if(event.key==='Enter')verifyAdmin()" />
+      <div id="admin-error" role="alert" aria-live="polite"></div>
+      <button class="btn btn-primary" onclick="verifyAdmin()" style="width:100%;max-width:none;">
+        Access Dashboard →
+      </button>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="admin-dashboard" style="display:none;">
+      <div class="admin-header">
+        <div>
+          <h1>✈️ Admin Dashboard</h1>
+          <div class="admin-sub">Aviation Professionals Network of Sri Lanka · Registry Management</div>
+        </div>
+        <div class="export-row">
+          <button class="btn-export" onclick="exportCSV(false)" aria-label="Download filtered view as CSV">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Filtered CSV
+          </button>
+          <button class="btn-export" onclick="exportCSV(true)" aria-label="Download full registry as CSV">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Full Export
+          </button>
+          <button class="btn-export" onclick="adminLogout()" aria-label="Log out of admin">🚪 Logout</button>
+        </div>
+      </div>
+
+      <div class="admin-container">
+        <!-- Stats -->
+        <div class="stats-row" id="stats-row">
+          <div class="stat-card"><div class="stat-value" id="stat-total">—</div><div class="stat-label">Total Registrations</div></div>
+          <div class="stat-card"><div class="stat-value" id="stat-month">—</div><div class="stat-label">This Month</div></div>
+          <div class="stat-card"><div class="stat-value" id="stat-failed">—</div><div class="stat-label">Pending Email Failures</div></div>
+          <div class="stat-card"><div class="stat-value" id="stat-categories">—</div><div class="stat-label">Unique Job Categories</div></div>
+        </div>
+
+        <!-- Controls -->
+        <div class="admin-controls">
+          <input type="search" class="admin-search" id="admin-search" placeholder="🔍  Search name, email, employer, reg no…" oninput="applyFilters()" aria-label="Search registrations" />
+          <select class="admin-filter" id="filter-category" onchange="applyFilters()" aria-label="Filter by Job Category">
+            <option value="">All Categories</option>
+          </select>
+          <select class="admin-filter" id="filter-status" onchange="applyFilters()" aria-label="Filter by Employment Status">
+            <option value="">All Statuses</option>
+            <option>Full-Time Permanent</option>
+            <option>Contract</option>
+            <option>Freelance / On-Call</option>
+          </select>
+          <select class="admin-filter" id="filter-airport" onchange="applyFilters()" aria-label="Filter by Airport">
+            <option value="">All Airports</option>
+          </select>
+        </div>
+
+        <!-- Table -->
+        <div class="table-wrapper">
+          <div class="table-scroll">
+            <table id="admin-table" aria-label="Registrations data table">
+              <thead>
+                <tr id="admin-thead"></tr>
+              </thead>
+              <tbody id="admin-tbody"></tbody>
+            </table>
+          </div>
+          <div class="pagination-row">
+            <div class="pagination-info" id="pag-info">Showing — of — results</div>
+            <div class="pagination-btns" id="pag-btns"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!--  JAVASCRIPT                                             -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <script>
+    'use strict';
+
+    // ── CONSTANTS ──────────────────────────────────────────
+    const SCRIPT_URL = (typeof google !== 'undefined' && google.script && google.script.run)
+      ? window.location.href
+      : window.location.href; // GAS web app URL (same URL for GET & POST)
+
+    const AIRPORT_REQUIRED_CATS = new Set([
+      'Flight Crew', 'Cabin Crew', 'Flight Operations & Dispatch',
+      'Air Traffic Control (ATC)', 'Airfield & Navigational Operations',
+      'Ground Operations & Ramp Services', 'Airport Services & Ticketing',
+      'Cargo & Logistics', 'Emergency & Fire Services (ARFF)',
+      'General/Specialized Aviation (FBO, Corporate, Air Ambulance)',
+    ]);
+
+    // ── STATE ──────────────────────────────────────────────
+    let currentStep = 1;
+    let adminData   = [];
+    let filteredData = [];
+    let adminHeaders = [];
+    let currentPage = 1;
+    const PAGE_SIZE  = 25;
+    let sortCol = -1;
+    let sortAsc = true;
+    let toastTimer = null;
+
+    // ── INIT ───────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', function () {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('view') === 'admin') {
+        showAdminView();
+      }
+      setupBlurValidation();
+    });
+
+    function showAdminView() {
+      document.getElementById('form-view').style.display = 'none';
+      document.getElementById('admin-view').style.display = 'block';
+      if (sessionStorage.getItem('adminVerified') === 'true') {
+        showAdminDashboard();
+      }
+    }
+
+    // ── STEP NAVIGATION ────────────────────────────────────
+    function goToStep(step, isBack) {
+      if (!isBack) {
+        // Validate current step first
+        if (!validateStep(currentStep)) return;
+      }
+      if (step === 3 && !isBack) {
+        buildReviewCard();
+      }
+      const oldPanel = document.getElementById('panel-' + currentStep);
+      const newPanel = document.getElementById('panel-' + step);
+
+      oldPanel.classList.remove('active');
+      newPanel.classList.add('active');
+      if (isBack) {
+        newPanel.classList.add('slide-left');
+        setTimeout(function() { newPanel.classList.remove('slide-left'); }, 350);
+      }
+      currentStep = step;
+      updateProgressBar();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateProgressBar() {
+      const fill = document.getElementById('connector-fill');
+      const pct = currentStep === 1 ? 0 : currentStep === 2 ? 50 : 100;
+      fill.style.width = pct + '%';
+
+      for (let s = 1; s <= 3; s++) {
+        const nav    = document.getElementById('step-nav-' + s);
+        const circle = document.getElementById('step-circle-' + s);
+        nav.classList.remove('active', 'completed');
+        if (s < currentStep) {
+          nav.classList.add('completed');
+          circle.innerHTML = '✓';
+          circle.setAttribute('aria-label', 'Step ' + s + ' completed');
+        } else if (s === currentStep) {
+          nav.classList.add('active');
+          circle.textContent = s;
+          nav.setAttribute('aria-current', 'step');
+        } else {
+          circle.textContent = s;
+          nav.removeAttribute('aria-current');
+        }
+      }
+    }
+
+    // ── VALIDATION ─────────────────────────────────────────
+    const RULES = {
+      fullName:         { required: true, regex: /^[a-zA-Z\s.'\-]{3,100}$/, msg: 'Enter your full legal name (3–100 characters).' },
+      preferredName:    { required: true, regex: /^[a-zA-Z\s.'\-]{2,50}$/,  msg: 'Enter your preferred name (2–50 characters).' },
+      primaryEmail:     { required: true, regex: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/, msg: 'Enter a valid email address.' },
+      primaryContactNo: { required: true, custom: validatePhone, msg: 'Enter a valid Sri Lankan mobile number (e.g., 0771234567 or +94771234567).' },
+      secondaryContactNo: { required: false, custom: validatePhoneOptional, msg: 'Invalid phone number.' },
+      permanentAddress: { required: true, minLen: 10, maxLen: 500, msg: 'Enter your full residential address (10–500 characters).' },
+      currentEmployer:  { required: true, minLen: 2,  maxLen: 100, msg: 'Enter your current employer (2–100 characters).' },
+      jobCategory:      { required: true, msg: 'Select your job category.' },
+      jobTitle:         { required: true, minLen: 2,  maxLen: 100, msg: 'Enter your job title (2–100 characters).' },
+      primaryBaseAirport: { required: false, msg: 'Select your primary base airport.' },
+      employmentStatus: { required: true, msg: 'Select your employment status.' },
+      caasLicenseNo:    { required: false, regex: /^[A-Za-z0-9\/\-\s]{5,50}$/, msg: 'Invalid license format (5–50 alphanumeric characters).' },
+      licenseType:      { required: false, minLen: 2, msg: 'License type is required when CAASL No. is provided.' },
+      typeRatings:      { required: false, maxLen: 200, msg: 'Must not exceed 200 characters.' },
+      totalExperience:  { required: false, maxLen: 100, msg: 'Must not exceed 100 characters.' },
+    };
+
+    const STEP_FIELDS = {
+      1: ['fullName','preferredName','primaryEmail','primaryContactNo','secondaryContactNo','permanentAddress'],
+      2: ['currentEmployer','jobCategory','jobTitle','primaryBaseAirport','employmentStatus'],
+      3: ['caasLicenseNo','licenseType','typeRatings','totalExperience'],
+    };
+
+    function validatePhone(val) {
+      const stripped = val.replace(/\s/g, '');
+      return /^(07\d{8}|\+947\d{8}|\+94\s?7\d{8})$/.test(stripped);
+    }
+    function validatePhoneOptional(val) {
+      if (!val.trim()) return true;
+      return validatePhone(val);
+    }
+
+    function validateField(id) {
+      const el    = document.getElementById(id);
+      const errEl = document.getElementById(id + '-error');
+      if (!el || !errEl) return true;
+
+      const rule = RULES[id];
+      if (!rule) return true;
+
+      const val = el.value;
+      let error = '';
+
+      // Airport: conditional required
+      if (id === 'primaryBaseAirport') {
+        const cat = document.getElementById('jobCategory').value;
+        const isRequired = AIRPORT_REQUIRED_CATS.has(cat);
+        if (isRequired && !val) {
+          error = 'Select your primary base airport.';
+        }
+      }
+      // License type: required if CAASL filled
+      else if (id === 'licenseType') {
+        const lic = document.getElementById('caasLicenseNo').value.trim();
+        if (lic && (!val.trim() || val.trim().length < 2)) {
+          error = 'License type is required when CAASL No. is provided.';
+        }
+      }
+      else {
+        if (rule.required && !val.trim()) {
+          error = rule.msg;
+        } else if (val.trim()) {
+          if (rule.custom && !rule.custom(val)) error = rule.msg;
+          else if (rule.regex && !rule.regex.test(val.trim())) error = rule.msg;
+          else if (rule.minLen && val.trim().length < rule.minLen) error = rule.msg;
+          else if (rule.maxLen && val.trim().length > rule.maxLen) error = rule.msg;
+        }
+      }
+
+      showFieldError(el, errEl, error);
+      return !error;
+    }
+
+    function showFieldError(el, errEl, error) {
+      if (error) {
+        el.classList.add('error');
+        el.classList.remove('valid');
+        errEl.textContent = '⚠ ' + error;
+      } else {
+        el.classList.remove('error');
+        if (el.value.trim()) el.classList.add('valid');
+        errEl.textContent = '';
+      }
+    }
+
+    function validateStep(step) {
+      let allValid = true;
+      let firstError = null;
+
+      STEP_FIELDS[step].forEach(function(id) {
+        const valid = validateField(id);
+        if (!valid && !firstError) firstError = id;
+        if (!valid) allValid = false;
+      });
+
+      if (firstError) {
+        const el = document.getElementById(firstError);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.classList.add('shake');
+          setTimeout(function() { el.classList.remove('shake'); }, 500);
+        }
+      }
+      return allValid;
+    }
+
+    function setupBlurValidation() {
+      Object.keys(RULES).forEach(function(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('blur', function() { validateField(id); });
+        el.addEventListener('input', function() {
+          const errEl = document.getElementById(id + '-error');
+          if (errEl && errEl.textContent) validateField(id);
+        });
+      });
+    }
+
+    // ── PHONE AUTO-FORMAT ──────────────────────────────────
+    document.addEventListener('DOMContentLoaded', function() {
+      ['primaryContactNo', 'secondaryContactNo'].forEach(function(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('blur', function() {
+          const v = el.value.trim().replace(/\s/g, '');
+          if (/^07\d{8}$/.test(v)) {
+            el.value = '+94' + v.substring(1);
+          }
+        });
+      });
+    });
+
+    // ── JOB CATEGORY CHANGE ────────────────────────────────
+    function onJobCategoryChange() {
+      const cat = document.getElementById('jobCategory').value;
+      const isRequired = AIRPORT_REQUIRED_CATS.has(cat);
+      const star = document.getElementById('airport-required-star');
+      const opt  = document.getElementById('airport-optional');
+      const sel  = document.getElementById('primaryBaseAirport');
+
+      if (isRequired) {
+        star.style.display = '';
+        opt.style.display  = 'none';
+        sel.setAttribute('aria-required', 'true');
+      } else {
+        star.style.display = 'none';
+        opt.style.display  = '';
+        sel.removeAttribute('aria-required');
+      }
+      validateField('primaryBaseAirport');
+    }
+
+    // ── LICENSE INPUT HANDLER ──────────────────────────────
+    function onLicenseInput() {
+      const licVal = document.getElementById('caasLicenseNo').value.trim();
+      const star   = document.getElementById('licenseType-required-star');
+      const opt    = document.getElementById('licenseType-optional');
+
+      if (licVal) {
+        star.style.display = '';
+        opt.style.display  = 'none';
+      } else {
+        star.style.display = 'none';
+        opt.style.display  = '';
+      }
+    }
+
+    // ── REVIEW CARD BUILD ──────────────────────────────────
+    function buildReviewCard() {
+      const g = function(id) { return document.getElementById(id) ? document.getElementById(id).value.trim() : ''; };
+      const v = function(val) {
+        return val
+          ? '<span class="review-value">' + escHtml(val) + '</span>'
+          : '<span class="review-empty">Not provided</span>';
+      };
+
+      document.getElementById('review-personal').innerHTML =
+        ri('Full Name',     g('fullName')) +
+        ri('Preferred Name', g('preferredName')) +
+        ri('Primary Email', g('primaryEmail'), true) +
+        ri('Primary Contact', g('primaryContactNo')) +
+        ri('Secondary Contact', g('secondaryContactNo')) +
+        riWrap('Permanent Address', g('permanentAddress'));
+
+      document.getElementById('review-employment').innerHTML =
+        ri('Current Employer', g('currentEmployer'), true) +
+        ri('Job Category',   g('jobCategory'), true) +
+        ri('Job Title',      g('jobTitle')) +
+        ri('Base Airport',   g('primaryBaseAirport')) +
+        ri('Employment Status', g('employmentStatus'));
+
+      document.getElementById('review-licensing').innerHTML =
+        ri('CAASL License No.', g('caasLicenseNo')) +
+        ri('License Type',      g('licenseType')) +
+        ri('Type Ratings',      g('typeRatings'), true) +
+        ri('Total Experience',  g('totalExperience'));
+
+      function ri(label, val, full) {
+        const cls = full ? 'review-item full' : 'review-item';
+        return '<div class="' + cls + '"><label>' + label + '</label>' + v(val) + '</div>';
+      }
+      function riWrap(label, val) {
+        return '<div class="review-item full"><label>' + label + '</label>' + v(val) + '</div>';
+      }
+    }
+
+    // ── SUBMIT FORM ────────────────────────────────────────
+    function submitForm() {
+      // Step 3 validation
+      if (!validateStep(3)) return;
+
+      // Confirm checkbox
+      const cb = document.getElementById('confirmAccuracy');
+      const cbErr = document.getElementById('confirm-error');
+      if (!cb.checked) {
+        cbErr.textContent = '⚠ Please confirm the accuracy of your information before submitting.';
+        cb.focus();
+        return;
+      }
+      cbErr.textContent = '';
+
+      // Collect payload
+      const payload = {
+        fullName:            getVal('fullName'),
+        preferredName:       getVal('preferredName'),
+        primaryEmail:        getVal('primaryEmail'),
+        primaryContactNo:    getVal('primaryContactNo'),
+        secondaryContactNo:  getVal('secondaryContactNo'),
+        permanentAddress:    getVal('permanentAddress'),
+        currentEmployer:     getVal('currentEmployer'),
+        jobCategory:         getVal('jobCategory'),
+        jobTitle:            getVal('jobTitle'),
+        primaryBaseAirport:  getVal('primaryBaseAirport'),
+        employmentStatus:    getVal('employmentStatus'),
+        caasLicenseNo:       getVal('caasLicenseNo'),
+        licenseType:         getVal('licenseType'),
+        typeRatings:         getVal('typeRatings'),
+        totalExperience:     getVal('totalExperience'),
+      };
+
+      setSubmitting(true);
+
+      // Use google.script.run if available (deployed GAS), else fetch
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        google.script.run
+          .withSuccessHandler(function(result) {
+            setSubmitting(false);
+            handleServerResponse(result);
+          })
+          .withFailureHandler(function(err) {
+            setSubmitting(false);
+            showToast('A connection error occurred. Please check your internet and try again.');
+          })
+          .processFormSubmission(payload);
+      } else {
+        // Fetch POST (for non-GAS deployment / testing)
+        fetch(window.location.href, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        })
+          .then(function(res) { return res.json(); })
+          .then(function(data) {
+            setSubmitting(false);
+            handleServerResponse(data);
+          })
+          .catch(function(err) {
+            setSubmitting(false);
+            showToast('A connection error occurred. Please try again later.');
+          });
+      }
+    }
+
+    function handleServerResponse(result) {
+      if (result && result.success) {
+        showSuccess(result.regNo);
+      } else {
+        showToast(result && result.error ? result.error : 'An unexpected error occurred. Please try again.');
+      }
+    }
+
+    function getVal(id) {
+      const el = document.getElementById(id);
+      return el ? el.value.trim() : '';
+    }
+
+    function setSubmitting(state) {
+      document.getElementById('loading-overlay').classList.toggle('active', state);
+      document.getElementById('submit-btn').disabled = state;
+      if (state) {
+        document.getElementById('submit-btn').innerHTML =
+          '<span class="spinner spinner-sm" aria-hidden="true"></span> Processing…';
+      } else {
+        document.getElementById('submit-btn').innerHTML = 'Complete Registration →';
+      }
+      document.querySelectorAll('#reg-form input, #reg-form select, #reg-form textarea')
+        .forEach(function(el) { el.disabled = state; });
+    }
+
+    // ── SUCCESS STATE ──────────────────────────────────────
+    function showSuccess(regNo) {
+      document.getElementById('success-reg-no').textContent = regNo || 'SL-AERO-2026-0001';
+      document.querySelectorAll('.step-panel').forEach(function(p) { p.style.display = 'none'; });
+      document.getElementById('success-view').style.display = 'block';
+      document.querySelector('.progress-bar').style.display  = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function copyRegNo() {
+      const regNo = document.getElementById('success-reg-no').textContent;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(regNo).then(function() {
+          const btn = document.getElementById('copy-reg-btn');
+          btn.textContent = '✅ Copied!';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '📋 Copy to Clipboard';
+            btn.classList.remove('copied');
+          }, 2500);
+        });
+      }
+    }
+
+    function resetForm() {
+      document.getElementById('reg-form').reset();
+      document.querySelectorAll('.step-panel').forEach(function(p) {
+        p.style.display = '';
+        p.classList.remove('active');
+      });
+      document.getElementById('panel-1').classList.add('active');
+      document.getElementById('success-view').style.display = 'none';
+      document.querySelector('.progress-bar').style.display = '';
+      document.querySelectorAll('.field-error').forEach(function(el) { el.textContent = ''; });
+      document.querySelectorAll('input.error, select.error, textarea.error').forEach(function(el) { el.classList.remove('error'); });
+      document.querySelectorAll('input.valid, select.valid, textarea.valid').forEach(function(el) { el.classList.remove('valid'); });
+      document.querySelectorAll('#reg-form input, #reg-form select, #reg-form textarea').forEach(function(el) { el.disabled = false; });
+      currentStep = 1;
+      updateProgressBar();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ── TOAST ──────────────────────────────────────────────
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      document.getElementById('toast-msg').textContent = msg;
+      t.classList.add('show');
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(hideToast, 6000);
+    }
+    function hideToast() {
+      document.getElementById('toast').classList.remove('show');
+    }
+
+    // ── UTILITIES ──────────────────────────────────────────
+    function escHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    // ═══════════════════════════════════════════════════════
+    //  ADMIN FUNCTIONS
+    // ═══════════════════════════════════════════════════════
+    function verifyAdmin() {
+      const pw  = document.getElementById('admin-password-field').value;
+      const err = document.getElementById('admin-error');
+      const gate = document.getElementById('admin-gate');
+
+      if (!pw.trim()) {
+        err.textContent = 'Please enter the admin password.';
+        return;
+      }
+
+      // Use google.script.run for password verification against Script Properties
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        google.script.run
+          .withSuccessHandler(function(result) {
+            if (result && result.success) {
+              sessionStorage.setItem('adminVerified', 'true');
+              sessionStorage.setItem('adminPassword', pw);
+              showAdminDashboard();
+            } else {
+              err.textContent = result ? result.error : 'Access Denied.';
+              gate.classList.add('shake');
+              setTimeout(function() { gate.classList.remove('shake'); }, 400);
+            }
+          })
+          .withFailureHandler(function() {
+            err.textContent = 'Connection error. Please try again.';
+          })
+          .verifyAdminPassword(pw);
+      } else {
+        // Demo: accept any password in non-GAS env
+        sessionStorage.setItem('adminVerified', 'true');
+        sessionStorage.setItem('adminPassword', pw);
+        showAdminDashboard();
+      }
+    }
+
+    function adminLogout() {
+      sessionStorage.removeItem('adminVerified');
+      sessionStorage.removeItem('adminPassword');
+      document.getElementById('admin-dashboard').style.display = 'none';
+      document.getElementById('admin-gate').style.display = '';
+      document.getElementById('admin-password-field').value = '';
+      document.getElementById('admin-error').textContent = '';
+    }
+
+    function showAdminDashboard() {
+      document.getElementById('admin-gate').style.display = 'none';
+      document.getElementById('admin-dashboard').style.display = '';
+      loadAdminData();
+    }
+
+    function loadAdminData() {
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        const pw = sessionStorage.getItem('adminPassword') || '';
+        google.script.run
+          .withSuccessHandler(function(result) {
+            if (result && result.success) {
+              adminHeaders = result.headers || [];
+              adminData    = result.data    || [];
+              buildAdminTable();
+            }
+          })
+          .withFailureHandler(function() {
+            showToast('Failed to load admin data.');
+          })
+          .getAdminData(pw);
+      } else {
+        // Demo data for non-GAS env
+        adminHeaders = ['Timestamp','Registration Number','Full Name','Preferred Name','Primary Email','Primary Contact No.','Secondary Contact No.','Permanent Address','Current Employer','Job Category','Job Title','Primary Base Airport','Employment Status','CAASL License No.','License Type','Type Ratings','Total Experience / Hours','Email Sent Status'];
+        adminData = [];
+        buildAdminTable();
+      }
+    }
+
+    function buildAdminTable() {
+      // Build header
+      const thead = document.getElementById('admin-thead');
+      const SORTABLE = ['Timestamp','Full Name','Job Category','Registration Number'];
+      thead.innerHTML = '';
+      adminHeaders.forEach(function(h, i) {
+        const th = document.createElement('th');
+        th.innerHTML = h + (SORTABLE.includes(h) ? '<span class="sort-icon" aria-hidden="true"></span>' : '');
+        if (SORTABLE.includes(h)) {
+          th.onclick = function() { sortTable(i, th); };
+          th.setAttribute('role', 'columnheader');
+          th.setAttribute('aria-sort', 'none');
+        }
+        th.id = 'th-' + i;
+        thead.appendChild(th);
+      });
+
+      // Populate filter dropdowns
+      const cats = [...new Set(adminData.map(function(r) { return r[9]; }).filter(Boolean))].sort();
+      const catSel = document.getElementById('filter-category');
+      catSel.innerHTML = '<option value="">All Categories</option>';
+      cats.forEach(function(c) {
+        const o = document.createElement('option'); o.value = c; o.textContent = c; catSel.appendChild(o);
+      });
+
+      const airports = [...new Set(adminData.map(function(r) { return r[11]; }).filter(Boolean))].sort();
+      const apSel = document.getElementById('filter-airport');
+      apSel.innerHTML = '<option value="">All Airports</option>';
+      airports.forEach(function(a) {
+        const o = document.createElement('option'); o.value = a; o.textContent = a; apSel.appendChild(o);
+      });
+
+      computeStats();
+      applyFilters();
+    }
+
+    function computeStats() {
+      const now   = new Date();
+      const month = now.getMonth();
+      const year  = now.getFullYear();
+
+      document.getElementById('stat-total').textContent = adminData.length;
+      document.getElementById('stat-month').textContent = adminData.filter(function(r) {
+        const d = new Date(r[0]);
+        return d.getMonth() === month && d.getFullYear() === year;
+      }).length;
+      document.getElementById('stat-failed').textContent = adminData.filter(function(r) { return r[17] === 'FAILED'; }).length;
+      document.getElementById('stat-categories').textContent = new Set(adminData.map(function(r) { return r[9]; }).filter(Boolean)).size;
+    }
+
+    function applyFilters() {
+      const query  = (document.getElementById('admin-search').value || '').toLowerCase();
+      const catFil = document.getElementById('filter-category').value;
+      const stFil  = document.getElementById('filter-status').value;
+      const apFil  = document.getElementById('filter-airport').value;
+
+      filteredData = adminData.filter(function(row) {
+        const searchStr = [row[1],row[2],row[4],row[8]].join(' ').toLowerCase();
+        if (query && !searchStr.includes(query)) return false;
+        if (catFil && row[9] !== catFil) return false;
+        if (stFil  && row[12] !== stFil)  return false;
+        if (apFil  && row[11] !== apFil)  return false;
+        return true;
+      });
+
+      currentPage = 1;
+      renderTable();
+    }
+
+    function sortTable(colIdx, thEl) {
+      if (sortCol === colIdx) {
+        sortAsc = !sortAsc;
+      } else {
+        sortCol = colIdx;
+        sortAsc = true;
+      }
+      document.querySelectorAll('thead th').forEach(function(th) {
+        th.classList.remove('sort-asc', 'sort-desc');
+        th.setAttribute('aria-sort', 'none');
+      });
+      thEl.classList.add(sortAsc ? 'sort-asc' : 'sort-desc');
+      thEl.setAttribute('aria-sort', sortAsc ? 'ascending' : 'descending');
+
+      filteredData.sort(function(a, b) {
+        const av = a[colIdx] instanceof Date ? a[colIdx].getTime() : String(a[colIdx] || '').toLowerCase();
+        const bv = b[colIdx] instanceof Date ? b[colIdx].getTime() : String(b[colIdx] || '').toLowerCase();
+        if (av < bv) return sortAsc ? -1 : 1;
+        if (av > bv) return sortAsc ?  1 : -1;
+        return 0;
+      });
+      renderTable();
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('admin-tbody');
+      const start = (currentPage - 1) * PAGE_SIZE;
+      const page  = filteredData.slice(start, start + PAGE_SIZE);
+
+      tbody.innerHTML = '';
+      if (page.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="' + adminHeaders.length + '" style="text-align:center;padding:32px;color:var(--slate);">No registrations found matching your filters.</td></tr>';
+      } else {
+        page.forEach(function(row) {
+          const tr = document.createElement('tr');
+          if (row[17] === 'FAILED') tr.classList.add('failed-row');
+          row.forEach(function(cell, i) {
+            const td = document.createElement('td');
+            if (i === 17) { // Email status
+              const status = String(cell || 'PENDING');
+              const pillClass = status === 'SENT' ? 'pill-sent' : status === 'FAILED' ? 'pill-failed' : 'pill-pending';
+              td.innerHTML = '<span class="status-pill ' + pillClass + '">' + escHtml(status) + '</span>';
+            } else if (i === 0 && cell instanceof Date) {
+              td.textContent = cell.toLocaleString();
+            } else {
+              td.textContent = cell != null ? String(cell) : '';
+            }
+            if (i === 7 || i === 9) td.classList.add('wrap'); // Address, Job Category
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr);
+        });
+      }
+
+      // Pagination
+      const totalPages = Math.ceil(filteredData.length / PAGE_SIZE) || 1;
+      const info = document.getElementById('pag-info');
+      info.textContent = 'Showing ' + (filteredData.length === 0 ? 0 : start + 1) + '–' + Math.min(start + PAGE_SIZE, filteredData.length) + ' of ' + filteredData.length + ' results';
+
+      const pag = document.getElementById('pag-btns');
+      pag.innerHTML = '';
+      const addPagBtn = function(label, page, disabled, active) {
+        const btn = document.createElement('button');
+        btn.className = 'pag-btn' + (active ? ' active' : '');
+        btn.textContent = label;
+        btn.disabled = disabled;
+        btn.setAttribute('aria-label', 'Page ' + label);
+        btn.onclick = function() { currentPage = page; renderTable(); };
+        pag.appendChild(btn);
+      };
+      addPagBtn('‹', currentPage - 1, currentPage === 1, false);
+      for (let p = Math.max(1, currentPage - 2); p <= Math.min(totalPages, currentPage + 2); p++) {
+        addPagBtn(p, p, false, p === currentPage);
+      }
+      addPagBtn('›', currentPage + 1, currentPage === totalPages, false);
+    }
+
+    // ── EXPORT CSV ─────────────────────────────────────────
+    function exportCSV(full) {
+      const source  = full ? adminData : filteredData;
+      const rows    = [adminHeaders].concat(source);
+      const csvContent = rows.map(function(row) {
+        return row.map(function(cell) {
+          const str = cell instanceof Date ? cell.toLocaleString() : String(cell != null ? cell : '');
+          return '"' + str.replace(/"/g, '""') + '"';
+        }).join(',');
+      }).join('\r\n');
+
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement('a');
+      a.href = url;
+      a.download = 'APNSL_Registry_' + (full ? 'Full' : 'Filtered') + '_' + new Date().toISOString().split('T')[0] + '.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>

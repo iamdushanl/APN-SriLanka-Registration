@@ -1,0 +1,26 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Node (if ever added)
+node_modules/
+npm-debug.log*
+
+# Google Apps Script clasp config (keep local only)
+.clasp.json
+.claspignore
+
+# Temporary files
+*.tmp
+*.bak
+*.log
