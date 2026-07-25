@@ -1704,7 +1704,8 @@
       } else {
         document.getElementById('submit-btn').innerHTML = 'Complete Registration →';
       }
-      document.querySelectorAll('#reg-form input, #reg-form select, #reg-form textarea')
+      // Disable all form fields EXCEPT the confirm checkbox so user can still check it
+      document.querySelectorAll('#reg-form input:not(#confirmAccuracy), #reg-form select, #reg-form textarea')
         .forEach(function(el) { el.disabled = state; });
     }
 

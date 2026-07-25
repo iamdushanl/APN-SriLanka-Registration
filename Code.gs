@@ -12,7 +12,22 @@ const CONFIG = {
   MAX_SUBMISSIONS_PER_HOUR: 3,
   ADMIN_EMAIL_PLACEHOLDER: 'admin@apnsl.lk',
   ORG_NAME: 'Aviation Professionals Network of Sri Lanka',
+  SPREADSHEET_ID_KEY: 'SPREADSHEET_ID',
 };
+
+// ─── HELPER: Get Spreadsheet ─────────────────────────────────
+// IMPORTANT: getActiveSpreadsheet() does NOT work in a deployed Web App.
+// Always use this helper which reads the ID from Script Properties.
+function getSpreadsheet() {
+  const props = PropertiesService.getScriptProperties();
+  const ssId  = props.getProperty(CONFIG.SPREADSHEET_ID_KEY);
+  if (!ssId) {
+    throw new Error(
+      'Spreadsheet ID not configured. Please run setupScriptProperties() from the Apps Script editor first.'
+    );
+  }
+  return SpreadsheetApp.openById(ssId);
+}
 
 // ─── AIRPORT CATEGORIES REQUIRING BASE AIRPORT ──────────────
 const AIRPORT_REQUIRED_CATEGORIES = [
@@ -123,8 +138,8 @@ function doPost(e) {
     // ── Sanitize all inputs ──────────────────────────────────
     const clean = sanitizePayload(payload);
 
-    // ── Get registry sheet ───────────────────────────────────
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    // ── Get registry sheet ───────────────────────────────
+    const ss = getSpreadsheet();
     let sheet = ss.getSheetByName(CONFIG.SHEET_NAME);
     if (!sheet) {
       sheet = createRegistrySheet(ss);
@@ -398,7 +413,7 @@ function generateRegistrationNumber(sheet) {
 // ─── HELPER: Rate Limiting ───────────────────────────────────
 function checkRateLimit(ip) {
   try {
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const ss = getSpreadsheet();
     let rlSheet = ss.getSheetByName(CONFIG.RATE_LIMIT_SHEET);
     if (!rlSheet) {
       rlSheet = ss.insertSheet(CONFIG.RATE_LIMIT_SHEET);
@@ -434,7 +449,7 @@ function checkRateLimit(ip) {
 
 function recordRateLimitHit(ip) {
   try {
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const ss = getSpreadsheet();
     let rlSheet = ss.getSheetByName(CONFIG.RATE_LIMIT_SHEET);
     if (!rlSheet) {
       rlSheet = ss.insertSheet(CONFIG.RATE_LIMIT_SHEET);
@@ -529,12 +544,35 @@ function include(filename) {
 }
 
 // ─── SETUP: Initialize script properties ─────────────────────
-// Run once manually to set up the admin password.
+// !! RUN THIS ONCE MANUALLY from the Apps Script editor before deploying !!
+// It creates the Google Sheet, saves its ID, and sets the admin password.
 function setupScriptProperties() {
   const props = PropertiesService.getScriptProperties();
-  // Set your desired admin password here before running:
-  props.setProperty('ADMIN_PASSWORD', 'AviationAdmin@2026');
-  console.log('Script properties initialized.');
+
+  // 1. Create (or reuse) the Google Spreadsheet
+  let ssId = props.getProperty(CONFIG.SPREADSHEET_ID_KEY);
+  if (!ssId) {
+    const ss = SpreadsheetApp.create('Aviation Professionals Network — Registry');
+    ssId = ss.getId();
+    props.setProperty(CONFIG.SPREADSHEET_ID_KEY, ssId);
+    console.log('Created new spreadsheet: ' + ss.getUrl());
+  } else {
+    console.log('Using existing spreadsheet ID: ' + ssId);
+  }
+
+  // 2. Ensure Registry sheet exists with correct headers
+  const ss = SpreadsheetApp.openById(ssId);
+  let sheet = ss.getSheetByName(CONFIG.SHEET_NAME);
+  if (!sheet) {
+    createRegistrySheet(ss);
+    console.log('Created Registry sheet.');
+  }
+
+  // 3. Set admin password
+  props.setProperty('ADMIN_PASSWORD', 'AviationAdmin@2026'); // Change before going live!
+
+  console.log('✅ Setup complete. Spreadsheet ID: ' + ssId);
+  console.log('✅ Open your sheet at: https://docs.google.com/spreadsheets/d/' + ssId);
 }
 
 // ─── CALLABLE: Form Submission (from google.script.run) ───────
@@ -563,7 +601,7 @@ function processFormSubmission(payload) {
     const clean = sanitizePayload(payload);
 
     // Get / create registry sheet
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const ss = getSpreadsheet();
     let sheet = ss.getSheetByName(CONFIG.SHEET_NAME);
     if (!sheet) sheet = createRegistrySheet(ss);
 
@@ -667,7 +705,7 @@ function getAdminData(providedPassword) {
       return { success: false, error: 'Access Denied.' };
     }
 
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const ss = getSpreadsheet();
     const sheet = ss.getSheetByName(CONFIG.SHEET_NAME);
     if (!sheet) {
       return { success: true, headers: [], data: [] };
@@ -681,5 +719,38 @@ function getAdminData(providedPassword) {
   } catch (err) {
     return { success: false, error: err.toString() };
   }
+}
+
+// ─── UNIT TEST: processFormSubmission ────────────────────────
+// Run this from the Apps Script editor to verify the full submission flow.
+function testProcessFormSubmission() {
+  const testPayload = {
+    fullName:           'Test Aviation User',
+    preferredName:      'Test User',
+    primaryEmail:       'testuser_' + Date.now() + '@test.lk',
+    primaryContactNo:   '0771234567',
+    secondaryContactNo: '',
+    permanentAddress:   '123 Test Road, Colombo 01, Sri Lanka',
+    currentEmployer:    'Test Airlines',
+    jobCategory:        'Flight Crew',
+    jobTitle:           'First Officer',
+    primaryBaseAirport: 'BIA (Bandaranaike International Airport)',
+    employmentStatus:   'Full-Time Permanent',
+    caasLicenseNo:      '',
+    licenseType:        '',
+    typeRatings:        'Airbus A320',
+    totalExperience:    '500 Flight Hours',
+  };
+
+  console.log('Running unit test...');
+  const result = processFormSubmission(testPayload);
+  console.log('Result: ' + JSON.stringify(result));
+
+  if (result.success) {
+    console.log('✅ TEST PASSED — Registration number: ' + result.regNo);
+  } else {
+    console.log('❌ TEST FAILED — Error: ' + result.error);
+  }
+  return result;
 }
 
