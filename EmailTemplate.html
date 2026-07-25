@@ -49,9 +49,9 @@
           <tr>
             <td style="background:#ffffff;padding:36px 32px 28px;">
 
-              <!-- Greeting -->
+              <!-- Greeting: use first word of fullName as the first name -->
               <p style="margin:0 0 8px;font-size:22px;font-weight:700;color:#0f172a;">
-                Dear <?= data.preferredName ?>,
+                Dear <?= data.fullName.trim().split(' ')[0] ?>,
               </p>
               <p style="margin:0 0 24px;font-size:14px;color:#64748b;line-height:1.6;">
                 Thank you for registering with the <strong style="color:#0f172a;">Aviation Professionals Network of Sri Lanka</strong>.
