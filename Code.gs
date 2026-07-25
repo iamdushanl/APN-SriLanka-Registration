@@ -10,7 +10,12 @@ const CONFIG = {
   RATE_LIMIT_SHEET: 'RateLimit',
   REG_PREFIX: 'SL-AERO',
   MAX_SUBMISSIONS_PER_HOUR: 3,
+  // ── Email settings ──────────────────────────────────────────
+  // ADMIN_EMAIL_PLACEHOLDER: shown in the email footer as the contact address.
+  // REPLY_TO_EMAIL: replies from registrants will go HERE (not your personal Gmail).
+  // Change both to your org email once you have one (e.g. admin@apnsl.lk).
   ADMIN_EMAIL_PLACEHOLDER: 'admin@apnsl.lk',
+  REPLY_TO_EMAIL: 'admin@apnsl.lk',   // ← set this to your real org/admin email
   ORG_NAME: 'Aviation Professionals Network of Sri Lanka',
   SPREADSHEET_ID_KEY: 'SPREADSHEET_ID',
 };
@@ -529,12 +534,15 @@ function sendConfirmationEmail(data, regNo, timestamp) {
 
   const subject = 'Registration Confirmed — ' + CONFIG.ORG_NAME + ' [' + regNo + ']';
 
+  // NOTE: GAS always sends FROM the script owner's Gmail account.
+  // 'replyTo' ensures any reply from the registrant lands in the org inbox,
+  // not in the personal Gmail. Set CONFIG.REPLY_TO_EMAIL to your org address.
   MailApp.sendEmail({
     to: data.primaryEmail,
     subject: subject,
     htmlBody: htmlBody,
-    name: CONFIG.ORG_NAME,
-    noReply: true,
+    name: CONFIG.ORG_NAME,          // Display name shown in inbox: "Aviation Professionals..."
+    replyTo: CONFIG.REPLY_TO_EMAIL, // Replies go HERE, not to personal Gmail
   });
 }
 
@@ -571,8 +579,14 @@ function setupScriptProperties() {
   // 3. Set admin password
   props.setProperty('ADMIN_PASSWORD', 'AviationAdmin@2026'); // Change before going live!
 
-  console.log('✅ Setup complete. Spreadsheet ID: ' + ssId);
-  console.log('✅ Open your sheet at: https://docs.google.com/spreadsheets/d/' + ssId);
+  const sheetUrl = 'https://docs.google.com/spreadsheets/d/' + ssId;
+  console.log('✅ Setup complete.');
+  console.log('📊 Spreadsheet URL: ' + sheetUrl);
+  console.log('👉 ACTION REQUIRED: Open the URL above and share/move the sheet:');
+  console.log('   • Click Share → add your admin team emails with Editor access');
+  console.log('   • Or move it to a shared Google Drive folder');
+  console.log('📧 Emails will be sent FROM: ' + Session.getActiveUser().getEmail());
+  console.log('   Replies will go TO: ' + CONFIG.REPLY_TO_EMAIL + ' (set REPLY_TO_EMAIL in CONFIG)');
 }
 
 // ─── CALLABLE: Form Submission (from google.script.run) ───────
