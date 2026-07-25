@@ -9,7 +9,7 @@ const CONFIG = {
   SHEET_NAME: 'Registry',
   RATE_LIMIT_SHEET: 'RateLimit',
   REG_PREFIX: 'APNSL',
-  MAX_SUBMISSIONS_PER_HOUR: 3,
+  MAX_SUBMISSIONS_PER_HOUR: 10,
   // ── Email settings ───────────────────────────────────────────
   ADMIN_EMAIL_PLACEHOLDER: 'apnsl.registry@gmail.com', // shown in email footer
   REPLY_TO_EMAIL: 'apnsl.registry@gmail.com',          // replies go here
