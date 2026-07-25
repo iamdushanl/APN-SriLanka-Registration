@@ -527,14 +527,6 @@ function setupScriptProperties() {
  */
 function processFormSubmission(payload) {
   try {
-    // Rate limiting (GAS does not expose real IPs; use Session email as fingerprint
-    // for authenticated users, or fall back to 'anonymous')
-    const clientIp = Session.getActiveUser().getEmail() || 'anonymous';
-    const rateLimitResult = checkRateLimit(clientIp);
-    if (!rateLimitResult.allowed) {
-      return { success: false, error: 'Rate limit exceeded. Please try again in 1 hour.' };
-    }
-
     // Server-side validation
     const validationResult = validatePayload(payload);
     if (!validationResult.valid) {
@@ -605,9 +597,6 @@ function processFormSubmission(payload) {
       console.error('Email send failed for %s: %s', regNo, emailErr.toString());
     }
     sheet.getRange(lastRow, 18).setValue(emailStatus);
-
-    // Record rate limit hit
-    recordRateLimitHit(clientIp);
 
     return { success: true, regNo: regNo };
 
