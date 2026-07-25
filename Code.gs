@@ -392,7 +392,8 @@ function generateRegistrationNumber(sheet) {
   const prefix = CONFIG.REG_PREFIX + '-' + currentYear + '-';
 
   const lastRow = sheet.getLastRow();
-  let maxSeq = 0;
+  // Start at 10000 so the very first number issued is APNSL-2026-10001 (5 digits)
+  let maxSeq = 10000;
 
   if (lastRow > 1) {
     const regNumbers = sheet.getRange(2, 2, lastRow - 1, 1).getValues();
@@ -407,9 +408,8 @@ function generateRegistrationNumber(sheet) {
     });
   }
 
-  const nextSeq = maxSeq + 1;
-  const padded = nextSeq.toString().padStart(4, '0');
-  return prefix + padded;
+  // nextSeq will be 10001, 10002, 10003 ... — always 5 digits, no padding needed
+  return prefix + (maxSeq + 1).toString();
 }
 
 // ─── HELPER: Rate Limiting ───────────────────────────────────
