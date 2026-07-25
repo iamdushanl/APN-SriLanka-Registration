@@ -8,7 +8,7 @@
 const CONFIG = {
   SHEET_NAME: 'Registry',
   RATE_LIMIT_SHEET: 'RateLimit',
-  REG_PREFIX: 'SL-AERO',
+  REG_PREFIX: 'APNSL',
   MAX_SUBMISSIONS_PER_HOUR: 3,
   // ── Email settings ───────────────────────────────────────────
   ADMIN_EMAIL_PLACEHOLDER: 'apnsl.registry@gmail.com', // shown in email footer
@@ -529,17 +529,35 @@ function sendConfirmationEmail(data, regNo, timestamp) {
 
   const htmlBody = emailTemplate.evaluate().getContent();
 
-  const subject = 'Registration Confirmed — ' + CONFIG.ORG_NAME + ' [' + regNo + ']';
+  // Clean subject: no symbols, no ALL CAPS words — reduces spam score
+  const subject = 'Your APNSL Registration is Confirmed [' + regNo + ']';
+
+  // Plain-text fallback: mail clients and spam filters prefer emails with both
+  const textBody = [
+    'Dear ' + data.fullName.trim().split(' ')[0] + ',',
+    '',
+    'Thank you for registering with the Aviation Professionals Network of Sri Lanka.',
+    'Your registration has been confirmed.',
+    '',
+    'REGISTRATION NUMBER: ' + regNo,
+    '',
+    'Please retain this number for all future correspondence.',
+    '',
+    'Kind regards,',
+    'Aviation Professionals Network of Sri Lanka',
+    CONFIG.ADMIN_EMAIL_PLACEHOLDER,
+  ].join('\n');
 
   // NOTE: GAS always sends FROM the script owner's Gmail account.
-  // 'replyTo' ensures any reply from the registrant lands in the org inbox,
-  // not in the personal Gmail. Set CONFIG.REPLY_TO_EMAIL to your org address.
+  // 'replyTo' ensures any reply from the registrant lands in the org inbox.
   MailApp.sendEmail({
     to: data.primaryEmail,
     subject: subject,
-    htmlBody: htmlBody,
-    name: CONFIG.ORG_NAME,          // Display name shown in inbox: "Aviation Professionals..."
-    replyTo: CONFIG.REPLY_TO_EMAIL, // Replies go HERE, not to personal Gmail
+    body: textBody,                   // plain-text version (critical for spam)
+    htmlBody: htmlBody,               // HTML version shown to modern clients
+    name: CONFIG.ORG_NAME,
+    replyTo: CONFIG.REPLY_TO_EMAIL,
+    noReply: false,
   });
 }
 
