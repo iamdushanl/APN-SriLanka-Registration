@@ -10,12 +10,11 @@ const CONFIG = {
   RATE_LIMIT_SHEET: 'RateLimit',
   REG_PREFIX: 'SL-AERO',
   MAX_SUBMISSIONS_PER_HOUR: 3,
-  // ── Email settings ──────────────────────────────────────────
-  // ADMIN_EMAIL_PLACEHOLDER: shown in the email footer as the contact address.
-  // REPLY_TO_EMAIL: replies from registrants will go HERE (not your personal Gmail).
-  // Change both to your org email once you have one (e.g. admin@apnsl.lk).
-  ADMIN_EMAIL_PLACEHOLDER: 'admin@apnsl.lk',
-  REPLY_TO_EMAIL: 'admin@apnsl.lk',   // ← set this to your real org/admin email
+  // ── Email settings ───────────────────────────────────────────
+  // TODO: Replace 'imdush2025@gmail.com' below with your org Gmail once created
+  //       e.g. 'apnsl.network@gmail.com' or 'aviationprofessionalsnetwork@gmail.com'
+  ADMIN_EMAIL_PLACEHOLDER: 'imdush2025@gmail.com', // shown in email footer
+  REPLY_TO_EMAIL: 'imdush2025@gmail.com',           // replies go here
   ORG_NAME: 'Aviation Professionals Network of Sri Lanka',
   SPREADSHEET_ID_KEY: 'SPREADSHEET_ID',
 };
