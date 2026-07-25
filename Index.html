@@ -860,6 +860,23 @@
       color: rgba(255,255,255,0.4);
     }
     .site-footer span { color: var(--sky); }
+    .site-footer .dev-credit {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.02em;
+    }
+    .site-footer .dev-credit a {
+      color: rgba(255,255,255,0.38);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.2s;
+    }
+    .site-footer .dev-credit a:hover { color: #25D366; text-decoration: none; }
 
     /* ─── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 640px) {
@@ -1243,6 +1260,13 @@
 
     <footer class="site-footer" aria-label="Site footer">
       <p>© 2026 <span>Aviation Professionals Network of Sri Lanka</span> · All rights reserved · Secure &amp; Confidential</p>
+      <p class="dev-credit">
+        Designed &amp; developed by
+        <a href="https://wa.me/94775604348?text=Hi%20Dushan%2C%20I%20saw%20your%20work%20on%20the%20APNSL%20registration%20portal." target="_blank" rel="noopener" aria-label="Contact Dushan Liyanage on WhatsApp">
+          <svg width="13" height="13" viewBox="0 0 32 32" fill="#25D366" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.74 5.494 2.035 7.8L0 32l8.418-2.01A15.94 15.94 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.27 22.557c-.347.977-2.03 1.865-2.8 1.982-.717.108-1.623.153-2.617-.165--.604-.193-1.38-.45-2.37-.882-4.17-1.802-6.89-6.01-7.1-6.29-.207-.28-1.69-2.25-1.69-4.29s1.07-3.044 1.45-3.46c.38-.418.828-.522 1.104-.522.276 0 .55.003.793.014.254.012.596-.097.932.71.347.832 1.18 2.874 1.284 3.082.103.207.172.45.034.727-.14.276-.207.45-.415.693-.207.244-.435.545-.622.732-.207.207-.423.43-.18.844.243.414 1.08 1.782 2.317 2.886 1.59 1.42 2.93 1.86 3.344 2.067.414.207.657.172.9-.104.243-.276 1.04-1.213 1.317-1.63.276-.414.55-.346.926-.207.38.14 2.4 1.13 2.81 1.337.41.207.685.31.786.483.104.172.104 1.003-.243 1.98z"/></svg>
+          Dushan Liyanage
+        </a>
+      </p>
     </footer>
   </div>
 
