@@ -7,9 +7,7 @@
 // ─── CONFIGURATION ──────────────────────────────────────────
 const CONFIG = {
   SHEET_NAME: 'Registry',
-  RATE_LIMIT_SHEET: 'RateLimit',
   REG_PREFIX: 'APNSL',
-  MAX_SUBMISSIONS_PER_HOUR: 10,
   // ── Email settings ───────────────────────────────────────────
   ADMIN_EMAIL_PLACEHOLDER: 'apnsl.registry@gmail.com', // shown in email footer
   REPLY_TO_EMAIL: 'apnsl.registry@gmail.com',          // replies go here
@@ -124,13 +122,6 @@ function doPost(e) {
       return buildResponse({ success: false, error: 'Invalid request format.' }, headers);
     }
 
-    // ── Rate limiting ────────────────────────────────────────
-    const clientIp = e.parameter && e.parameter.ip ? e.parameter.ip : 'unknown';
-    const rateLimitResult = checkRateLimit(clientIp);
-    if (!rateLimitResult.allowed) {
-      return buildResponse({ success: false, error: 'Rate limit exceeded. Please try again in 1 hour.' }, headers);
-    }
-
     // ── Server-side validation ───────────────────────────────
     const validationResult = validatePayload(payload);
     if (!validationResult.valid) {
@@ -209,12 +200,6 @@ function doPost(e) {
       emailStatus = 'FAILED';
       console.error('Email send failed for %s: %s', regNo, emailErr.toString());
     }
-
-    // ── Update email status in sheet ─────────────────────────
-    sheet.getRange(lastRow, 18).setValue(emailStatus);
-
-    // ── Record rate limit hit ────────────────────────────────
-    recordRateLimitHit(clientIp);
 
     return buildResponse({ success: true, regNo: regNo }, headers);
 
@@ -412,76 +397,6 @@ function generateRegistrationNumber(sheet) {
   return prefix + (maxSeq + 1).toString();
 }
 
-// ─── HELPER: Rate Limiting ───────────────────────────────────
-function checkRateLimit(ip) {
-  try {
-    const ss = getSpreadsheet();
-    let rlSheet = ss.getSheetByName(CONFIG.RATE_LIMIT_SHEET);
-    if (!rlSheet) {
-      rlSheet = ss.insertSheet(CONFIG.RATE_LIMIT_SHEET);
-      rlSheet.appendRow(['IP Address', 'Timestamps']);
-    }
-
-    const now = Date.now();
-    const oneHourAgo = now - (60 * 60 * 1000);
-
-    const data = rlSheet.getDataRange().getValues();
-    for (let i = 1; i < data.length; i++) {
-      if (data[i][0] === ip) {
-        let timestamps = [];
-        try {
-          timestamps = JSON.parse(data[i][1] || '[]');
-        } catch (e) {
-          timestamps = [];
-        }
-        // Filter to last hour
-        const recent = timestamps.filter(function(ts) { return ts > oneHourAgo; });
-        if (recent.length >= CONFIG.MAX_SUBMISSIONS_PER_HOUR) {
-          return { allowed: false };
-        }
-        return { allowed: true };
-      }
-    }
-    return { allowed: true };
-  } catch (err) {
-    console.error('Rate limit check error: ' + err.toString());
-    return { allowed: true }; // Fail open to avoid blocking legitimate users
-  }
-}
-
-function recordRateLimitHit(ip) {
-  try {
-    const ss = getSpreadsheet();
-    let rlSheet = ss.getSheetByName(CONFIG.RATE_LIMIT_SHEET);
-    if (!rlSheet) {
-      rlSheet = ss.insertSheet(CONFIG.RATE_LIMIT_SHEET);
-      rlSheet.appendRow(['IP Address', 'Timestamps']);
-    }
-
-    const now = Date.now();
-    const oneHourAgo = now - (60 * 60 * 1000);
-    const data = rlSheet.getDataRange().getValues();
-
-    for (let i = 1; i < data.length; i++) {
-      if (data[i][0] === ip) {
-        let timestamps = [];
-        try {
-          timestamps = JSON.parse(data[i][1] || '[]');
-        } catch (e) {
-          timestamps = [];
-        }
-        const recent = timestamps.filter(function(ts) { return ts > oneHourAgo; });
-        recent.push(now);
-        rlSheet.getRange(i + 1, 2).setValue(JSON.stringify(recent));
-        return;
-      }
-    }
-
-    rlSheet.appendRow([ip, JSON.stringify([now])]);
-  } catch (err) {
-    console.error('Rate limit record error: ' + err.toString());
-  }
-}
 
 // ─── HELPER: Create Registry Sheet with Headers ──────────────
 function createRegistrySheet(ss) {
