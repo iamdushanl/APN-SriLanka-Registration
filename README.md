@@ -1,4 +1,4 @@
-# Aviation Professionals Network of Sri Lanka — Registration Portal
+# Aviation Professionals Network of Sri Lanka - Registration Portal
 
 > **"Connecting Sri Lanka's Aviation Excellence"**
 
