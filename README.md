@@ -53,7 +53,7 @@ No servers, no databases, no hosting bills — just Google Apps Script, Sheets, 
 ### 1️⃣ Multi-Step Registration Form
 *A guided 3-step wizard — Personal Details → Employment → Licensing & Submit*
 
-<img src="Assets/screenshots/registration-form.png" alt="Registration form — Step 1: Personal & Identity" width="800"/>
+<img src=""C:\Users\HP\Documents\Aviation_database\Assets\screenshots\registration-form.png"" alt="Registration form — Step 1: Personal & Identity" width="800"/>
 
 <br/><br/>
 
